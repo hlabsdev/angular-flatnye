@@ -13,15 +13,17 @@ export class BiensService {
 
   baseUrl: string = environment.apiUrl;
   errorMgmt: any;
-  currentUser:string = localStorage.getItem('currentUser');
-
+  currentUser:any = localStorage.getItem('currentUser');
   headersOption: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
-    Authorization: `Token 1edf79927e04a1d016a303aae85a2571dd0abe65`
+    // Authorization: `Token 1edf79927e04a1d016a303aae85a2571dd0abe65`
+    Authorization: 'Token '+this.currentUser
   });
 // ${/*localStorage.getItem('currentUser')*/}
   constructor(private http: HttpClient) {
     console.log('localStorage.getItem(', localStorage.getItem('currentUser'));
+  // console.log('biens service:', );
+
   }
 
   getAllBien() {

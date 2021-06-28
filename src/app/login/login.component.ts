@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
       }).toPromise().then(
         (res: any) => {
           console.log("donnée",res.user)
-          localStorage.setItem('currentUser', JSON.stringify({ token: res.token }));
+          // localStorage.setItem('currentUser', JSON.stringify(res.token));
+          localStorage.setItem('currentUser', res.token);
           localStorage.setItem('users', JSON.stringify(res.user));
           localStorage.setItem('profile', JSON.stringify(res.profile));
           this.router.navigate(['/']);

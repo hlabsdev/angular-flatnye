@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiUrl: 'https://flatnyeapi.nunyalabprojets.com/api/',
+  // apiUrl: 'https://flatnyeapi.nunyalabprojets.com/api/',
+  apiUrl: 'https://8000-white-dog-3tyosmky.ws-eu08.gitpod.io/api/',
   production: false
 };
 

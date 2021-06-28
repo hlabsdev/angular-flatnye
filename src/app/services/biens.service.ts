@@ -13,32 +13,35 @@ export class BiensService {
 
   baseUrl: string = environment.apiUrl;
   errorMgmt: any;
+  currentUser:string = localStorage.getItem('currentUser');
 
-  headersOption: any = new HttpHeaders({
+  headersOption: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     Authorization: `Token 1edf79927e04a1d016a303aae85a2571dd0abe65`
   });
 // ${/*localStorage.getItem('currentUser')*/}
   constructor(private http: HttpClient) {
     console.log('localStorage.getItem(', localStorage.getItem('currentUser'));
-
   }
 
   getAllBien() {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Token 95b804114074565c7cc5bdb2d7dcdcf4c3aae599'
-    });
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   Authorization: 'Token 95b804114074565c7cc5bdb2d7dcdcf4c3aae599'
+    // });
+
+    const headers = this.headersOption;
     return this.http.get(`${this.baseUrl}bien`, { headers });
   }
 
   
 
   AddBiens(data: Biens): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Token 1edf79927e04a1d016a303aae85a2571dd0abe65'
-    });
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   Authorization: 'Token 95b804114074565c7cc5bdb2d7dcdcf4c3aae599'
+    // });
+    const headers = this.headersOption;
     //console.log('biens service:', data);
     return this.http.post(`${this.baseUrl}bien/`, data, { headers });
     // .pipe(
@@ -47,19 +50,23 @@ export class BiensService {
   }
 
   public getBienById(id: number) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Token 1edf79927e04a1d016a303aae85a2571dd0abe65'
-    });
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   Authorization: 'Token 95b804114074565c7cc5bdb2d7dcdcf4c3aae599'
+    // });
+
+    const headers = this.headersOption;
     return this.http.get(`${this.baseUrl}bien/${id}`, { headers });
   }
 
   saveBiens(bien: Biens) {
     //console.log('Donnée en paramétre', bien);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Token 1edf79927e04a1d016a303aae85a2571dd0abe65'
-    });
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   Authorization: 'Token 95b804114074565c7cc5bdb2d7dcdcf4c3aae599'
+    // });
+
+    const headers = this.headersOption;
     return new Promise(
       (resolve, reject) => {
         const promise = this.http.post(`${this.baseUrl}bien`, bien, { headers }).toPromise();
@@ -77,10 +84,12 @@ export class BiensService {
   }
 
   createBien(bien: Biens) {
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   Authorization: 'Token 95b804114074565c7cc5bdb2d7dcdcf4c3aae599'
+    // });
 
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json').set('Authorization', 'Token 1edf79927e04a1d016a303aae85a2571dd0abe65');
-
+    const headers = this.headersOption;
     const body = JSON.stringify({
       titre: "titre",
       ville: "ville",

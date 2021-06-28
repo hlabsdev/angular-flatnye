@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    //this.http.post(`${this.baseUrl}get_token`,
-    this.http.post(`${this.baseUrl}login`,
+    this.http.post(`${this.baseUrl}get_token/`,
+    // this.http.post(`${this.baseUrl}login`,
       {
         username: this.username,
         password: this.password

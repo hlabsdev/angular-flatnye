@@ -1,0 +1,173 @@
+<div class="bg-primary pt-1 pb-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="https://www.facebook.com/elom.ayedji" class="white-text">
+                    <i class="icofont-facebook"></i>
+                </a>&nbsp;
+                <a href="https://twitter.com/elom_ayedji" class="white-text">
+                    <i class="icofont-twitter"></i>
+                </a>&nbsp;
+                <a href="https://www.instagram.com/elomayedji" class="white-text">
+                    <i class="icofont-instagram"></i>
+                </a>
+<!--
+                <a href="" class="float-right font-size-14" style="color: #ecf6ff;">
+                    <i class="icofont-share"></i>&nbsp;
+                    <b>Partager</b>
+                </a> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="v-menu-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="w-100">
+                    <tr>
+                        <td style="line-height: 15px;">
+                            <a href="/" class="logo">
+                                <span class="grey-text">#</span><span class="blue-text">Flat</span><span class="red-text">Nye</span>
+                            </a><br />
+                            <small class="blue-text">Discutez selon votre budget</small>
+                        </td>
+                        <td class="text-right">
+
+                            <a [routerLink]="['/house/search']" class="btn btn-md blue lighten-5 black-text z-depth-0 mb-0" id="smHide" style="border-radius: 25px;">
+                                <i class="icofont-search"></i>&nbsp;
+                                <small><b>Rechercher</b></small>
+                            </a>
+
+                            <a [routerLink]="['/help']" class="btn btn-outline-pink btn-md z-depth-0 mb-0" id="smHide" style="border-radius: 25px;">
+                                <i class="icofont-question-circle"></i>&nbsp;
+                                <small><b>Obtenir de l'aide</b></small>
+                            </a>
+
+                            <a [routerLink]="['/contact']" class="btn btn-md white pink-text rounded-circle p-0 mb-0" id="smHide" style="height: 40px; line-height: 40px; width: 40px;">
+                                <i class="icofont-phone"></i>
+                            </a>
+                            <a (click)="onShowSmMenu()" class="btn btn-md bg-primary white-text z-depth-0 mr-0 mb-0 text-center rounded-circle p-0" style="height: 40px; line-height: 40px; width: 40px;">
+                                <i class="icofont-navigation-menu"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="white z-depth-1" *ngIf="showmenu" id="sm-menu">
+                    <a *ngIf="!showcompte" [routerLink]="['/login']">
+                        <div class="blue lighten-5 indigo-text mt-4 text-center pt-2 pb-2">
+                            <small><b>Connectez-vous</b></small>
+                        </div>
+                    </a>
+                    <a *ngIf="showcompte" [routerLink]="['/etablissement/index']">
+                        <div class="blue lighten-5 indigo-text mt-4 text-center pt-2 pb-2">
+                            <small><b>Mon compte</b></small>
+                        </div>
+                    </a>
+                    <div class="p-2">
+                        <a [routerLink]="['/users/etablissement/register']" class="btn border border-primary blue-text z-depth-0 rounded btn-sm btn-block">
+                            <i class="icofont-plus"></i>&nbsp;
+                            <b>Ajouter votre Etablissement</b>
+                        </a>
+                    </div>
+
+                    <a href="">
+                        <div class="pl-3 pr-3 pt-2 pb-2 font-size-13" style="color: #333;">
+                            <i class="icofont-search indigo-text"></i>&nbsp;&nbsp;
+                            <b>Rechercher un logement</b>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="pl-3 pr-3 pt-2 pb-2 font-size-13" style="color: #333;">
+                            <i class="icofont-question-circle pink-text"></i>&nbsp;&nbsp;
+                            <b>Obtenir de l'aide</b>
+
+                            <span class="badge badge-pill badge-primary float-right">24h/24</span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="pl-3 pr-3 pt-2 pb-2 font-size-13" style="color: #333;">
+                            <i class="icofont-phone brown-text"></i>&nbsp;&nbsp;
+                            <b>Nous laisser un message</b>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="pl-3 pr-3 pt-2 pb-2 font-size-13" style="color: #333;">
+                            <i class="icofont-plus orange-text"></i>&nbsp;&nbsp;
+                            <b>Plus de logements</b>
+
+                            <span class="badge badge-pill badge-danger float-right">+2894</span>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="pl-3 pr-3 pt-2 pb-2 font-size-13" style="color: #333;">
+                            <i class="icofont-info-circle blue-text"></i>&nbsp;&nbsp;
+                            <b>A propos de #OneHouse</b>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sub-menu-tab">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="w-100">
+                    <tr>
+                        <td width="150" class="text-center">
+                            <a href="" class="active">
+                                <div>
+                                    <i class="icofont-money"></i>&nbsp;
+                                    <b class="md-hide">Acheter</b>
+                                    <div class="mt-3" style="height: 2px; background-color: #257ace;"></div>
+                                </div>
+                            </a>
+
+                        </td>
+                        <td width="150" class="text-center">
+                            <a href="">
+                                <div>
+                                    <i class="icofont-ui-home"></i>&nbsp;
+                                    <b class="md-hide">Louer</b>
+                                    <div class="mt-3" style="height: 2px;"></div>
+                                </div>
+                            </a>
+                        </td>
+                        <td width="150" class="text-center">
+                            <a href="">
+                                <div>
+                                    <i class="icofont-gift"></i>&nbsp;
+                                    <b class="md-hide">Vendre</b>
+                                    <div class="mt-3" style="height: 2px;"></div>
+                                </div>
+                            </a>
+                        </td>
+                        <!--<td width="130" class="text-center">
+                            <a href="">
+                                <div>
+                                    <i class="icofont-ui-map"></i>&nbsp;
+                                    <b class="md-hide">Terrains</b>
+                                    <div class="mt-3" style="height: 2px;"></div>
+                                </div>
+                            </a>
+                        </td>
+                        <td width="130" class="text-center">
+                            <a href="">
+                                <div>
+                                    <i class="icofont-money"></i>&nbsp;
+                                    <b class="md-hide">Achat de maison</b>
+                                    <div class="mt-3" style="height: 2px;"></div>
+                                </div>
+                            </a>
+                        </td>-->
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div style="padding-top: 3%;" id="body" class="col-12 col-lg-6 col-md-auto">
+            <div class="card p-5">
+                <div class="card-header bg-white">
+                    Connectez-vous
+                </div>
+                <div *ngIf='error' class="text-center mt-4">
+                    <span class="text-danger" >nom d'utilisateur ou mot de passe incorrect</span>
+                </div>
+                <div class="card-body">
+                    <form class="">
+                        <!-- Material input -->
+                        <div class="md-form">
+                            <i class="fas fa-user prefix"></i>
+                            <input [(ngModel)]='username' name="username" type="text" id="inputValidationEx" required class="form-control validate">
+                            <label for="inputValidationEx" data-error="invalide" data-success="valide">Type your
+                                email</label>
+                        </div>
+                        <!-- Material input -->
+                        <div class="md-form">
+                            <i class="fas fa-lock prefix"></i>
+                            <input type="password" name="password" id="inputValidationEx2" required [(ngModel)]="password"
+                                class="form-control validate">
+                            <label for="inputValidationEx2" data-error="invalide" data-success="valide">Mot de passe</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" (click)="login()" >Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+</script>

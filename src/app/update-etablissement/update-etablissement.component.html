@@ -1,0 +1,111 @@
+<app-v-menu-bar></app-v-menu-bar>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12"><br />
+            <h3 class="h4-responsive text-center">
+                Mise à jour du compte
+            </h3><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-md-1 col-sm-12"></div>
+        <div class="col-lg-4 col-md-8 col-sm-12">
+            <form action="" method="post">
+                <div>
+                    
+                    <table class="w-100">
+                        <tr>
+                            <td>
+                                <div class="md-form mb-0 mt-0">
+                                    <input type="email" id="email" class="form-control font-size-14 mb-0" placeholder={{mon_compte.nom}}>
+                                </div>
+                            </td>
+                            <td width="20">
+                                <label for="email" class="mb-0 mt-0"><i class="icofont-pencil-alt-5"></i></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><small class="grey-text">Nom ou titre de l'établissement</small></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="md-form mb-0 mt-0">
+                                    <input type="email" id="email" class="form-control font-size-14 mb-0" placeholder={{mon_compte.adresse}}>
+                                </div>
+                            </td>
+                            <td width="20">
+                                <label for="email" class="mb-0 mt-0"><i class="icofont-pencil-alt-5"></i></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><small class="grey-text">Adresse complète</small></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="md-form mb-0 mt-0">
+                                    <input type="email" id="email" class="form-control font-size-14 mb-0" placeholder={{mon_compte.email}}>
+                                </div>
+                            </td>
+                            <td width="20">
+                                <label for="email" class="mb-0 mt-0"><i class="icofont-pencil-alt-5"></i></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><small class="grey-text">Email</small></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="md-form mb-0 mt-0">
+                                    <input type="email" id="email" class="form-control font-size-14 mb-0" placeholder={{mon_compte.contact}}>
+                                </div>
+                            </td>
+                            <td width="20">
+                                <label for="email" class="mb-0 mt-0"><i class="icofont-pencil-alt-5"></i></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><small class="grey-text">Contact</small></td>
+                        </tr>
+                        <!-- <tr>
+                            <td colspan="2" class="pt-3">
+                                <small class="grey-text">Description</small>
+                                <textarea name="" id="" class="form-control font-size-14" placeholder="Saisir une description ici ..."></textarea>
+                            </td>
+                        </tr> -->
+                    </table>
+                    <button class="btn btn-success btn-md ml-0" style="border-radius: 25px;">
+                        <i class="icofont-tick-mark"></i>
+                        Appliquer
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+        <div class="col-lg-4 col-md-8 col-sm-12">
+            <small><b>Téléphones</b></small>
+            <table class="w-100 mt-2">
+                <tr>
+                    <td width="40" class="green lighten-5 green-text text-center pt-2 pb-2 rounded">
+                        <i class="icofont-whatsapp"></i>
+                    </td>
+                    <td class="pl-1">
+                        <div><input type="text" class="w-100 form-control font-size-14" placeholder={{mon_compte.contact}}></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="pb-2"></td>
+                </tr>
+                <tr>
+                    <td width="40" class="blue lighten-5 blue-text text-center pt-2 pb-2 rounded">
+                        <i class="icofont-phone"></i>
+                    </td>
+                    <td class="pl-1">
+                        <div><input type="text" class="w-100 form-control font-size-14" placeholder={{mon_compte.contact}}></div>
+                    </td>
+                </tr>
+            </table><br />
+            <small><b>Réseaux sociaux</b></small>
+        </div>
+    </div> 
+</div><br /><br /><br />

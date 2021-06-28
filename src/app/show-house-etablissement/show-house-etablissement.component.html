@@ -1,0 +1,235 @@
+<app-v-menu-bar></app-v-menu-bar>
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 font-size-14">
+
+            <b>Bougez le <img src="../../assets/icones/houselocator.svg" alt="legend-icon" width="30"> sur la carte pour changer de position.</b>
+
+            <div class="side-map-right mb-3 pt-2">
+                <div class="white search-maison-form-cover z-depth-1 mt-1">
+                    <div class="search-maison-form white border m-2">
+                        <table class="w-100">
+                            <tr>
+                                <td width="50" class="text-center">
+                                    <label for="place" class="pt-2"><i class="icofont-listine-dots"></i></label>
+                                </td>
+                                <td>
+                                    <input type="text" class="w-100" id="place" #search autocapitalize="off" autocomplete="off" spellcheck="off" placeholder="Entrer un lieu dans le champs ...">
+                                </td>
+                                <td width="55">
+                                    <button class="w-100 text-center white">
+                                        <i class="icofont-search"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="legend-search-title-bottom-carret">
+                        <div id="accordianId" role="tablist" aria-multiselectable="true">
+                            <div>
+                                <div role="tab" id="section1HeaderId">
+                                    <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                                        <div class="text-center pb-2 grey lighten-4 pt-2">
+                                            <i class="icofont-rounded-down black-text"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+                                    <div class="p-3 font-size-13">
+                                        <div class="mb-2">
+                                            <img src="../../assets/icones/houselocator.svg" alt="legend-icon" width="30">
+                                            <b>Les maisons qui sont en location</b>
+                                        </div>
+                                        <div class="mb-2">
+                                            <img src="../../assets/icones/searchspin.png" alt="legend-icon" width="12" class="mr-2" style="margin-left: 10px;">
+                                            <b>L'adresse ou l'emplacement recherché</b>
+                                        </div>
+                                        <div>
+                                            <img src="../../assets/icones/userLocator.png" alt="legend-icon" width="30">
+                                            <b>Votre position actuelle</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="position: absolute; bottom: 0; right: 0; left: 0;">
+                    <table class="w-100">
+                        <tr>
+                            <td>
+                                <div>
+                                    <a href="" class="btn btn-red btn-md ml-0" style="border-radius: 25px;">
+                                        Annuler
+                                    </a>
+                                    <a href="" class="btn btn-success btn-md ml-0" style="border-radius: 25px;">
+                                        <i class="icofont-tick-mark"></i>
+                                        Appliquer
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="text-right">
+                                <button class="btn btn-white p-0 m-0 rounded-circle text-center"
+                                style="height: 45px; line-height: 55px; width: 45px;">
+                                    <i class="icofont-focus icofont-2x"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-lg-7 font-size-14">
+            <div class="h3-responsive">
+                <b class="font-weight-bold">Pièce simple interne avec WC douche interne</b>
+            </div><br />
+
+            <b class="font-weight-bold blue-grey-text">Titre</b>
+            <div>
+               {{biens.titre}}
+            </div><br />
+
+            <div class="font-size-13">
+                <i class="icofont-coins"></i>&nbsp;
+                <b class="font-weight-bold">
+                    Prix : {{biens.prix}} F CFA par mois
+                </b><br />
+                <b class="font-weight-bold blue-grey-text">Dimensions</b>
+                <div>
+                    {{biens.dimensions}} m<sup>2</sup>
+                 </div>
+                 <b class="font-weight-bold blue-grey-text">Quartier</b>
+                <div>
+                    {{biens.quartier}}
+                 </div>
+                <i class="icofont-bathtub"></i>&nbsp;
+                <b class="font-weight-bold">WC/Douche interne : Oui</b><br />
+                <i class="icofont-layered-cake"></i>&nbsp;
+                <b class="font-weight-bold">Cuisine interne : Oui</b><br /><br />
+            </div>
+
+            <div>
+
+                <a href="" class="float-right">
+                    <i class="icofont-image"></i>&nbsp;
+                    <b>Ajouter photo</b>
+                </a>
+
+                <b class="font-weight-bold orange-text">Photos</b><br />
+
+                <table class="w-100">
+                    <tr>
+                        <td>
+                            <div class="grey gallery-house">
+                                <img src="{{medias.fichier}}" style="height: 100%;width: 100%;">
+                            </div>
+                            <a href="" class="red-text">
+                                <small>
+                                    <i class="icofont-bin"></i>
+                                    Supprimer
+                                </small>
+                            </a>
+                        </td>
+                     
+                    </tr>
+                </table><br /><br />
+                <table class="w-100">
+                    <tr>
+                        <td width="50%">
+                            <a href="#!" data-toggle="modal" data-target="#modelId" class="btn btn-block btn-md z-depth-0 lighten-5 indigo-text">
+                                <i class="icofont-edit"></i>&nbsp;
+                                <b>Modifier cet article</b>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-block btn-md z-depth-0 lighten-5 red-text">
+                                <i class="icofont-trash"></i>&nbsp;
+                                <b>Supprimer cet article</b>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog modal-md" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Modifier l'article</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                            </div>
+                            <div class="modal-body">
+                                
+                                <form action="" method="post">
+
+                                    <div class="">
+                                        <label for="titre" class="mb-0 mt-0"><small><b>Titre article</b></small></label>
+                                        <input type="text" id="titre" class="form-control font-size-14 mb-0" value="Le titre de l'article devrait donc être ici là à cet endroit">
+                                    </div>
+
+                                    <label for="description" class="mb-0 mt-3"><small><b>Description article</b></small></label><br />
+                                    <textarea id="description" class="form-control font-size-14 mb-0"></textarea>
+
+                                    <br />
+                                    <table class="w-100">
+                                        <tr>
+                                            <td width="135">
+                                                <input type="number" class="form-control font-size-14" placeholder="Prix mensuel ...">
+                                            </td>
+                                            <td>
+                                                <div class="form-group mb-0">
+                                                    <select class="custom-select font-size-14" name="" id="">
+                                                        <option selected disabled value="">WC/D interne</option>
+                                                        <option value="Oui">Oui</option>
+                                                        <option value="Non">Non</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group mb-0">
+                                                    <select class="custom-select font-size-14" name="" id="">
+                                                        <option selected disabled value="">Cuisine interne</option>
+                                                        <option value="Oui">Oui</option>
+                                                        <option value="Non">Non</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" class="pt-2">
+
+                                                <img src="../../assets/db/locationchambre/01.jpg" alt="First slide" width="100%" class="mb-2">
+
+                                                <label for="image" class="w-100">
+                                                    <div class="blue lighten-5 text-center pt-2 pb-2 indigo-text">
+                                                        <i class="icofont-paint"></i>&nbsp;
+                                                        <b>Modifier l'image principale</b>
+                                                    </div>
+                                                    <input type="file" id="image" style="width: 0; height: 0; outline: none; border: none;">
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-primary btn-md z-depth-0" style="border-radius: 25px;">
+                                            Mettre à jour
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><br /><br />
+        </div>
+    </div>
+</div>

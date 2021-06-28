@@ -1,0 +1,120 @@
+<app-v-menu-bar></app-v-menu-bar>
+
+<div class="container">
+    <div class="row">
+
+
+        <div class="col-md-6">
+            
+            <!-- step1 -->
+            <form [formGroup]="biens" class="mt-2" (ngSubmit)="saveBien()">
+                <div class="md-form mb-0 mt-1">
+                    <input type="text" id="text" class="form-control font-size-14 mb-0" name="titre"  formControlName="titre"  placeholder="Titre">
+                </div>
+    
+                <div class="md-form mb-0 mt-1">
+                    <input type="text" id="localisation" class="form-control font-size-14 mb-0" name="cooordonnee"  formControlName="coordonnee"
+                        placeholder="Coordonées GPS"  >
+                </div>
+                <div class="md-form mb-0 mt-1">
+                    <input type="text" id="ville" class="form-control font-size-14 mb-0" placeholder="Ville" name="ville"  formControlName="ville"
+                       >
+                </div>
+                <div class="md-form mb-0 mt-1">
+                    <input type="text" id="quartier" class="form-control font-size-14 mb-0" name="quartier"  formControlName="quartier"
+                        placeholder="Quartier"  >
+                </div>
+                <div class="md-form mb-0 mt-1">
+                    <input type="number" id="dimension" class="form-control font-size-14 mb-0" name="dimension"  formControlName="dimension"
+                        placeholder="Dimension"  >
+                </div>
+                <div class="md-form mb-0 mt-1">
+                    <input type="text" id="description" class="form-control font-size-14 mb-0" name="descrption"  formControlName="description"
+                        placeholder="Description"  >
+                </div>
+    
+                <div class="md-form mb-0 mt-1">
+                    <input type="number" id="prix" class="form-control font-size-14 mb-0" placeholder="Prix" name="prix"  formControlName="prix"
+                         >
+                </div>
+                
+                <div class="md-form mb-0 mt-1">
+                    <select class="form-control font-size-14 mb-0" name="type"  formControlName="type" >
+                        <option value="" selected disabled >Choisir un type</option>
+                        <option value="T">Tarrain</option>
+                        <option value="V">Villa</option>
+                        <option value="M">Maison</option>
+                        <option value="A">Appartement</option>
+                        <option value="C">Chambre</option>
+                    </select>
+                </div>
+                <div class="md-form mb-0 mt-1">
+                    <select class="form-control font-size-14 mb-0" name="categorie"  formControlName="categorie" >
+                        <option value="" selected disabled>Choisir catégorie</option>
+                        <option value="L">Location</option>
+                        <option value="V">Vente</option>
+    
+                    </select>
+                </div>
+                <div class="md-form mb-0 mt-1">
+                    <select class="form-control font-size-14 mb-0" name="etat"  formControlName="etat" >
+                        <option value="" selected disabled>Choisir etat</option>
+                        <option value="V">Vendu</option>
+                        <option value="R">Reservé</option>
+                        <option value="L">Loué</option>
+    
+                    </select>
+                </div>
+                <div class="md-form mb-0 mt-1">
+                    <select class="form-control font-size-14 mb-0" name="agence"  formControlName="agence" >
+                        <option value="">agence</option>
+                        <option *ngFor="let agence of tableauCompte" value="{{agence.id}}">{{agence.nom}}
+                        </option>
+    
+    
+                    </select>
+                </div>
+    
+                <button class="btn btn-primary btn-block btn-md rounded z-depth-0 mt-3">
+                Soumettre
+            </button>
+            </form>
+        </div>
+        
+        <div class="col-md-6">
+
+            
+        <!-- step2 -->
+        <form [formGroup]="medias" class="mt-2" (ngSubmit)="sendMedias()">
+            <div class="md-form mb-0 mt-1">
+                <input type="text" id="text" class="form-control font-size-14 mb-0" placeholder="Titre"  formControlName="titre"
+                    name="titre">
+               
+            </div>
+            <div class="md-form mb-0 mt-1">
+                <select class="form-control font-size-14 mb-0" name="typeImg"  formControlName="type" >
+                    <option value="" selected disabled>Type</option>
+                    <option value="Location">Photo</option>
+                    <option value="Vente">Vidéo</option>
+
+                </select>
+            </div>
+
+            <div class="md-form mb-0 mt-1">
+                <span>Select Image</span>
+                <input formControlName="images" id="images" type="file" class="form-control" (change)="onFileChange($event)" multiple>
+            </div>
+
+            <div class="md-form mb-0 mt-1">
+                <select class="form-control font-size-14 mb-0"   formControlName="liaison" >
+                    <option *ngFor="let item of tabBien" value="{{item.id}}">{{item.titre}}</option>
+                </select>
+            </div>
+
+            <button  class="btn btn-primary btn-block btn-md rounded z-depth-0 mt-3">
+                Envoyer
+            </button>
+        </form>
+    </div>
+    
+</div>

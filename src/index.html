@@ -1,1 +1,53 @@
-<my-app>loading</my-app>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>FlatNye</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="assets/icofont/icofont.min.css">
+    <link rel="stylesheet" href="assets/mdb/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/mdb/css/mdb.min.css">
+    <link rel="stylesheet" href="assets/mdb/css/style.css">
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css">
+  </head>
+  <body>
+    <app-root></app-root>
+    <script src="assets/mdb/js/jquery.min.js"></script>
+    <script src="assets/mdb/js/popper.min.js"></script>
+    <script src="assets/mdb/js/bootstrap.min.js"></script>
+    <script src="assets/mdb/js/mdb.min.js"></script>
+    <script src="assets/ckeditor/ckeditor.js"></script>
+    <script src="assets/slick/slick.min.js"></script>
+    <!--<script src="assets/js/sm_menu.js"></script>-->
+
+    <script>
+      $(document).ready(function(){
+        $('.customer-logos').slick({
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: false,
+            dots: false,
+            pauseOnHover: false,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 3
+                }
+            }, {
+                breakpoint: 520,
+                settings: {
+                    slidesToShow: 1
+                }
+            }]
+        });
+    });
+    </script>
+  </body>
+</html>

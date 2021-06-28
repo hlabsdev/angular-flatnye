@@ -1,0 +1,128 @@
+<app-v-menu-bar></app-v-menu-bar>
+
+
+<div class="orange lighten-5 pt-3 pb-3 font-size-13">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <i class="icofont-search"></i>&nbsp;
+                <b><span class="font-weight-bold"><i>4 Résultat(s)</i></span> touvée pour selon votre budget</b>
+            </div>
+        </div>
+    </div>
+</div><br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let bien of tabBienBudget">
+            
+            <a href="#!" class="float-right white-text" style="margin-bottom: -50px; position: relative; padding: 10px; opacity: 0.8; text-shadow: 0 0 1px #000;">
+                <i class="icofont-heart icofont-2x"></i>
+            </a>
+            <a [routerLink]="['/house/bien/',bien.id]" *ngFor="let medias of bien.media_set">
+                <img src="{{medias.fichier}}" style="height: 100px;width: 100%;">
+            </a>
+
+            <div>
+                <h6 class="text-truncate">
+                    <small><b>Pièce simple avec WC interne</b></small>
+                </h6>
+                <small>
+                    <i class="icofont-coins"></i>
+                    250 XOF par mois
+                </small>
+            </div>
+        </div>
+        <!-- <div class="col-lg-3 col-md-4 col-sm-12">
+            <a href="#!" class="float-right white-text" style="margin-bottom: -50px; position: relative; padding: 10px; opacity: 0.8; text-shadow: 0 0 1px #000;">
+                <i class="icofont-heart icofont-2x"></i>
+            </a>
+            <a [routerLink]="['/house/1/details']">
+                <img src="../assets/db/locationchambre/01.jpg" width="100%">
+            </a>
+
+            <div>
+                <h6 class="text-truncate">
+                    <small><b>Pièce simple avec WC interne</b></small>
+                </h6>
+                <small>
+                    <i class="icofont-coins"></i>
+                    250 XOF par mois
+                </small>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <a href="#!" class="float-right white-text" style="margin-bottom: -50px; position: relative; padding: 10px; opacity: 0.8; text-shadow: 0 0 1px #000;">
+                <i class="icofont-heart icofont-2x"></i>
+            </a>
+            <a [routerLink]="['/house/1/details']">
+                <img src="../assets/db/locationchambre/01.jpg" width="100%">
+            </a>
+
+            <div>
+                <h6 class="text-truncate">
+                    <small><b>Pièce simple avec WC interne</b></small>
+                </h6>
+                <small>
+                    <i class="icofont-coins"></i>
+                    250 XOF par mois
+                </small>
+            </div>
+        </div> -->
+    </div>
+</div><br />
+
+<div class="border-top border-bottom pt-3 pb-3 font-size-13">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <b class="font-weight-bold">Plus de résultats</b>
+            </div>
+            <div class="col-6 text-right">
+                <a href="">
+                    <i class="icofont-refresh"></i>&nbsp;
+                    <b>Nouvelle recherche</b>
+                </a>
+            </div>
+        </div>
+    </div>
+</div><br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <a href="#!" class="float-right white-text" style="margin-bottom: -50px; position: relative; padding: 10px; opacity: 0.8; text-shadow: 0 0 1px #000;">
+                <i class="icofont-heart icofont-2x"></i>
+            </a>
+            <a [routerLink]="['/house/1/details']">
+                <img src="../assets/db/locationchambre/01.jpg" width="100%">
+            </a>
+
+            <div>
+                <h6 class="text-truncate">
+                    <small><b>Pièce simple avec WC interne</b></small>
+                </h6>
+                <small>
+                    <i class="icofont-coins"></i>
+                    250 XOF par mois
+                </small>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <a href="#!" class="float-right white-text" style="margin-bottom: -50px; position: relative; padding: 10px; opacity: 0.8; text-shadow: 0 0 1px #000;">
+                <i class="icofont-heart icofont-2x"></i>
+            </a>
+            <a [routerLink]="['/house/1/details']">
+                <img src="../assets/db/locationchambre/01.jpg" width="100%">
+            </a>
+
+            <div>
+                <h6 class="text-truncate">
+                    <small><b>Pièce simple avec WC interne</b></small>
+                </h6>
+                <small>
+                    <i class="icofont-coins"></i>
+                    250 XOF par mois
+                </small>
+            </div>
+        </div>
+    </div>
+</div><br />

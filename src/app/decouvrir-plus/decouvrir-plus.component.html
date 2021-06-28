@@ -1,0 +1,177 @@
+<app-v-menu-bar></app-v-menu-bar>
+
+
+<!-- <section class="customer-logos slider" style="overflow: hidden;">
+  <div class="slide" *ngFor="let prix of tabBien"  style="float: left; margin-right: auto;">
+      <a href="#!" class="float-right white-text" style="margin-bottom: -50px; position: relative; padding: 10px; opacity: 0.8; text-shadow: 0 0 1px #000;">
+          <i class="icofont-heart icofont-2x"></i>
+      </a>
+      <a  [routerLink]="['/house/bien/',prix.id]">
+          <img src="{{prix.media_set.fichier}}" style="height: 100px;width: 100px;">
+      </a>
+      <div>
+          <h6 class="text-truncate">
+              <small><b>{{prix.titre}} </b></small>
+          </h6>
+          <small>
+              <i class="icofont-coins"></i>
+              {{prix.prix}} XOF par mois
+          </small>
+      </div>
+  </div>
+
+</section> -->
+<section class="row col-12 justify-content-center">
+    <div class="card col-3 m-3 p-0" *ngFor="let item of tabBien | paginate: { itemsPerPage: pageSize, currentPage: p }">
+        <div class="card-body">
+            
+            <a [routerLink]="['/house/bien/',item.id]" *ngFor="let pri of item.media_set">
+                <img src="{{pri.fichier}}" style="height: 100px;width: 100%;">
+            </a>
+        </div>
+        <div class="card-footer">
+           
+            <a class="text-dark" [routerLink]="['/house/bien/',item.id]">
+            <h6 class="text-truncate">
+                <small><b>{{item.titre}} </b></small>
+            </h6>
+            <h6 class="text-truncate">
+                <small><b>{{item.quartier}} </b></small>
+            </h6>
+            <small>
+                <i class="icofont-coins"></i>
+                {{item.prix}} XOF/Mois
+            </small> 
+            </a>
+            
+        </div>
+        
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</section>
+<br />
+
+<div class="border-top border-bottom font-size-14 pt-3 pb-3">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <b>Si vous êtes aussi dans le domaine et que vous voulez voir votre maison par celles-ci, <a [routerLink]="['/users/etablissement/register']" class="orange-text">Ajoutez votre établissement</a></b>
+          </div>
+      </div>
+  </div>
+</div>
+<br />
+<br />
+<div class="container">
+  <div class="row">
+      <div class="col-lg-4 col-md-12 text-center">
+          <img src="../assets/svgs/02.svg" alt="svg" class="middle-svg"><br /><br />
+      </div>
+      <div class="col-lg-8 col-md-12 text-center"><br />
+          <h3>
+              <b>
+                  Rechercher les logements en fonctions des lieux
+              </b>
+          </h3>
+
+          <div>
+              <b>Trouvez des logements proches à votre lieu de travail, école, retaurant en quelques secondes ...</b>
+          </div><br />
+
+          <a [routerLink]="['/house/search']" class="btn btn-md bg-primary white-text z-depth-0" style="border-radius: 25px;">
+              <i class="icofont-search"></i>&nbsp;
+              <b>Lancer la recherche</b>
+          </a>
+
+      </div>
+  </div>
+</div><br /><br />
+<div style="background-color: #24538c;">
+  <div class="container">
+      <div class="row">
+          <div class="col-12">
+              <div class="text-center p-4">
+                  <div class="h4-responsive mb-2" style="color: #fff;">
+                      <b>Ne rattez plus les promotions !</b>
+                  </div>
+                  <div>
+                      <span style="color: #e5f3fa;">Inscrivez vous et restez informé de nos différentes promotions et offres spéciales</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-lg-3 col-md-12 col-sm-12">
+
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12 text-center">
+              <form action="" method="post" class="promo-form">
+                  <table class="w-100">
+                      <tr>
+                          <td>
+                              <input type="text" placeholder="Saisie votre email" class="w-100">
+                          </td>
+                          <td width="125" class="pl-1">
+                              <button type="submit" class="w-100">
+                                  <b>Envoyer</b>
+                              </button>
+                          </td>
+                      </tr>
+                  </table>
+              </form>
+              <div class="pb-2"></div>
+          </div>
+      </div><br />
+  </div>
+</div>
+
+<div class="yellow lighten-5 pt-3 pb-3 font-size-13">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <b>Copyright &copy; 2020 #OneHouse | Tous droits réservés.</b>
+          </div>
+          <div class="col-lg-6 text-right">
+              <a href="#!" data-toggle="modal" data-target="#modelId">
+                  <i class="icofont-lock"></i>
+                  <b>Conditions d'utilisation</b>
+              </a>
+          </div>
+      </div>
+  </div>
+</div><br />
+<div class="font-size-13">
+  <div class="container">
+      <div class="row">
+          <div class="col-12 text-center">
+
+              <span class="badge badge-pill badge-warning z-depth-0">Téléphone</span>&nbsp;
+              <b>0022891985311 | 0022891985311</b>&nbsp;&nbsp;
+              <span class="badge badge-pill badge-primary z-depth-0">Email</span>&nbsp;
+              <a href="mailto:onehouse@gmail.com"><b>onehouse@gmail.com</b></a>
+
+              <div class="pt-3">
+                  <b><a [routerLink]="['/contact']" class="orange-text">Cliquez ici</a> pour nous écrire directement</b>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br />
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title">Termes et conditions d'utilisation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+          </div>
+          <div class="modal-body">
+              ...
+          </div>
+      </div>
+  </div>
+</div>

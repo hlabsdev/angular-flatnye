@@ -1,0 +1,50 @@
+.search-map {
+    position: absolute;
+    top: 154px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.search-maison-form {
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.search-maison-form input {
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+.search-maison-form button {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+}
+
+.search-maison-form input::placeholder {
+    font-weight: bold;
+}
+
+.search-maison-form-cover {
+    border-radius: 7px;
+    overflow: hidden;
+}
+.legend-search-title-bottom-carret {
+    display: none;
+}
+
+@media(max-width: 768px) {
+    .search-map {
+        top: 157px;
+    }
+    .legend-search-body, .legend-search-title-bottom {
+        display: none;
+    }
+    .legend-search-title-bottom-carret {
+        display: block;
+    }
+    
+}

@@ -1,0 +1,226 @@
+<app-v-menu-bar></app-v-menu-bar>
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 font-size-14">
+            <div class="side-map-right mb-3 pt-2">
+                <div class="white search-maison-form-cover z-depth-1 mt-1">
+                    <div class="search-maison-form white border m-2">
+                        <table class="w-100">
+                            <tr>
+                                <td width="50" class="text-center">
+                                    <label for="place" class="pt-2"><i class="icofont-listine-dots"></i></label>
+                                </td>
+                                <td>
+                                    <input type="text" class="w-100" id="place" #search autocapitalize="off"
+                                        autocomplete="off" spellcheck="off"
+                                        placeholder="Entrer un lieu dans le champs ...">
+                                </td>
+                                <td width="55">
+                                    <button class="w-100 text-center white">
+                                        <i class="icofont-search"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="legend-search-title-bottom-carret">
+                        <div id="accordianId" role="tablist" aria-multiselectable="true">
+                            <div>
+                                <div role="tab" id="section1HeaderId">
+                                    <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId"
+                                        aria-expanded="true" aria-controls="section1ContentId">
+                                        <div class="text-center pb-2 grey lighten-4 pt-2">
+                                            <i class="icofont-rounded-down black-text"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="section1ContentId" class="collapse in" role="tabpanel"
+                                    aria-labelledby="section1HeaderId">
+                                    <div class="p-3 font-size-13">
+                                        <div class="mb-2">
+                                            <img src="../../assets/icones/houselocator.svg" alt="legend-icon"
+                                                width="30">
+                                            <b>Les maisons qui sont en location</b>
+                                        </div>
+                                        <div class="mb-2">
+                                            <img src="../../assets/icones/searchspin.png" alt="legend-icon" width="12"
+                                                class="mr-2" style="margin-left: 10px;">
+                                            <b>L'adresse ou l'emplacement recherché</b>
+                                        </div>
+                                        <div>
+                                            <img src="../../assets/icones/userLocator.png" alt="legend-icon" width="30">
+                                            <b>Votre position actuelle</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom"
+                            style="width: 100%; height: 100%; position: absolute;">
+                            <agm-marker *ngFor="let latlong of latlongs" [latitude]="latlong.latitude"
+                                [markerDraggable]="true" [longitude]="latlong.longitude"></agm-marker>
+                            <agm-marker *ngIf="userLat != 0 && userLng != 0" [latitude]="userLat" [iconUrl]="iconPin"
+                                [markerDraggable]="true" [longitude]="userLng"></agm-marker>
+                            <agm-marker *ngFor="let location of locations" [iconUrl]="icon" [latitude]="location.lat"
+                                [longitude]="location.lng">
+                                <agm-info-window>
+                                    <div style="width: 200px;">
+                                        <b class="font-weight-bold">Pièce simplet avec WC/D et cuisine
+                                            internes</b><br />
+                                        <div class="mt-2" style="line-height: 18px;">
+                                            <i class="icofont-coins"></i>
+                                            Prix : <span class="font-weight-bold">15000 F CFA par mois</span>.<br />
+                                            <i class="icofont-phone blue-text"></i>
+                                            Contact : 0022891985311<br />
+
+                                            <a [routerLink]="['/house/1/details']"
+                                                class="btn btn-block btn-sm blue lighten-5 blue-text rounded z-depth-0">
+                                                <small><b>Plus de détails sur le logement</b></small>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </agm-info-window>
+                            </agm-marker>
+
+                        </agm-map>
+                    </div>
+
+                </div>
+
+                <button class="btn btn-white p-0 rounded-circle text-center"
+                    style="height: 50px; line-height: 60px; width: 50px; position: absolute; bottom: 15px; right: 15px;">
+                    <i class="icofont-focus icofont-2x"></i>
+                </button>
+
+            </div>
+        </div>
+        <div class="col-lg-7 font-size-14">
+            <div class="h3-responsive">
+                <b class="font-weight-bold"> {{produit?.titre}} </b>
+            </div><br />
+            <b class="font-weight-bold orange-text" *ngIf="medias.length > 0" >Photos</b><br />
+
+            <!-- carrousel -->
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div *ngFor="let photo of medias" class="carousel-item active">
+                        <img class=" w-100" src="{{photo?.fichier}}" alt="First slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Précédent</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </div>
+            <!-- carrousel -->
+
+            <b class="font-weight-bold blue-grey-text">Description</b>
+            <div>
+                {{produit?.description}}
+            </div><br />
+
+            <div class="font-size-13">
+                <i class="icofont-coins"></i>&nbsp;
+                <b class="font-weight-bold">
+
+                    Prix : {{produit?.prix}} F CFA/ mois
+                </b><br />
+                <i class="icofont-bathtub"></i>&nbsp;
+                <b class="font-weight-bold">WC/Douche interne : Oui</b><br />
+                <i class="icofont-layered-cake"></i>&nbsp;
+                <b class="font-weight-bold">Cuisine interne : Oui</b><br /><br />
+            </div>
+
+            <div>
+
+                <!-- <table class="w-100">
+                    <tr>
+                        <td>
+                            <div class="grey gallery-house">
+                                <img src="{{medias[0].fichier}}" alt="First slide" style="height: 100%;width: 100%;" >
+                            </div>
+                        </td>
+
+                    </tr>
+                </table> -->
+                <br /><br />
+
+                <i class="icofont-building"></i>
+                <b class="font-weight-bold">Informations du propiétaire</b>
+                <br />
+
+                <address class="font-size-13 mt-2" style="line-height: 25px;">
+                    <b class="font-weight-bold">Nom</b> : <b>{{produit.titre}}</b><br />
+                    <b class="font-weight-bold">Ville</b> : <b>{{produit.ville}}</b><br />
+                    <b class="font-weight-bold">Quartier</b> : <b>{{produit.quartier}}</b><br />
+                    <b class="font-weight-bold">Catégorie</b> : <b>{{produit.categorie}}</b><br />
+
+                    <b class="font-weight-bold">Téléphone</b> :
+                    <ul>
+                        <li>
+                            0022891985311
+                        </li>
+                        <li>
+                            0022891985310
+                        </li>
+                    </ul>
+
+                </address>
+
+
+                <b class="font-weight-bold">Réseaux sociaux</b> :
+
+                <div>
+                    <a href="" class="btn btn-indigo p-0 rounded-circle text-center ml-0"
+                        style="width: 40px; height: 40px; line-height: 40px;">
+                        <i class="icofont-facebook"></i>
+                    </a>
+                    <a href="" class="btn btn-blue p-0 rounded-circle text-center ml-0"
+                        style="width: 40px; height: 40px; line-height: 40px;">
+                        <i class="icofont-twitter"></i>
+                    </a>
+                    <a href="" class="btn btn-blue-grey p-0 rounded-circle text-center ml-0"
+                        style="width: 40px; height: 40px; line-height: 40px;">
+                        <i class="icofont-linkedin"></i>
+                    </a>
+                    <a href="" class="btn btn-red p-0 rounded-circle text-center ml-0"
+                        style="width: 40px; height: 40px; line-height: 40px;">
+                        <i class="icofont-instagram"></i>
+                    </a>
+                    <a href="" class="btn btn-yellow p-0 rounded-circle text-center ml-0"
+                        style="width: 40px; height: 40px; line-height: 40px;">
+                        <span class="black-text"><i class="icofont-brand-snapchat"></i></span>
+                    </a>
+                </div>
+                <div class="mb-2">
+                    <a href="" class="btn z-depth-0 grey lighten-5 ml-0 pl-3 pr-3 mt-1 btn-block text-left pt-2 pb-2">
+                        <i class="icofont-whatsapp green-text"></i>&nbsp;
+                        <small><b>Envoyer message whatsapp</b></small>
+                    </a>
+                    <a href="" class="btn z-depth-0 grey lighten-5 ml-0 pl-3 pr-3 mt-1 btn-block text-left pt-2 pb-2">
+                        <i class="icofont-envelope red-text"></i>&nbsp;
+                        <small><b>Envoyer un e-mail</b></small>
+                    </a>
+                    <a href="" class="btn z-depth-0 grey lighten-5 ml-0 pl-3 pr-3 mt-1 btn-block text-left pt-2 pb-2">
+                        <i class="icofont-phone blue-text"></i>&nbsp;
+                        <small><b>Appel téléphonique</b></small>
+                    </a>
+
+                    <a href="" class="btn z-depth-0 grey lighten-5 ml-0 pl-3 pr-3 mt-1 btn-block text-left pt-2 pb-2">
+                        <i class="icofont-earth brown-text"></i>&nbsp;
+                        <small><b>Visiter le site web</b></small>
+                    </a>
+                </div><br /><br />
+            </div>
+        </div>
+    </div>
+</div>

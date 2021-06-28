@@ -1,0 +1,102 @@
+<app-v-menu-bar></app-v-menu-bar>
+
+<div class="search-map">
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" style="width: 100%; height: 100%; position: absolute;">
+        <agm-marker *ngFor="let latlong of latlongs" [latitude]="latlong.latitude" [markerDraggable]="true" [longitude]="latlong.longitude"></agm-marker>
+        <agm-marker *ngIf="userLat != 0 && userLng != 0" [latitude]="userLat" [iconUrl]="iconUser" [markerDraggable]="true" [longitude]="userLng"></agm-marker>
+        <agm-marker *ngFor="let location of locations" [iconUrl]="icon" [latitude]="location.lat" [longitude]="location.lng">
+            <agm-info-window>
+                <div style="width: 200px;">
+                    <b class="font-weight-bold">Pièce simplet avec WC/D et cuisine internes</b><br />
+                    <div class="mt-2" style="line-height: 18px;">
+                        <i class="icofont-coins"></i>
+                        Prix : <span class="font-weight-bold">15000 F CFA par mois</span>.<br />
+                        <i class="icofont-phone blue-text"></i>
+                        Contact : 0022891985311<br />
+    
+                        <a [routerLink]="['/house/1/details']" class="btn btn-block btn-sm blue lighten-5 blue-text rounded z-depth-0">
+                            <small><b>Plus de détails sur le logement</b></small>
+                        </a>
+                    </div>
+                </div>
+            </agm-info-window>
+        </agm-marker>
+        
+    </agm-map>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-5 col-sm-12">
+                <div class="white search-maison-form-cover z-depth-1 mt-1">
+                    <div class="search-maison-form white border m-2">
+                        <table class="w-100">
+                            <tr>
+                                <td width="50" class="text-center">
+                                    <label for="place" class="pt-2"><i class="icofont-listine-dots"></i></label>
+                                </td>
+                                <td>
+                                    <input type="text" class="w-100" id="place" #search autocapitalize="off" autocomplete="off" spellcheck="off" placeholder="Entrer un lieu dans le champs ...">
+                                </td>
+                                <td width="55">
+                                    <button class="w-100 text-center white">
+                                        <i class="icofont-search"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="p-3 font-size-13 legend-search-body">
+                        <div class="mb-2">
+                            <img src="../../assets/icones/houselocator.svg" alt="legend-icon" width="30">
+                            <b>Les maisons qui sont en location</b>
+                        </div>
+                        <div class="mb-2">
+                            <img src="../../assets/icones/searchspin.png" alt="legend-icon" width="12" class="mr-2" style="margin-left: 10px;">
+                            <b>L'adresse ou l'emplacement recherché</b>
+                        </div>
+                        <div>
+                            <img src="../../assets/icones/userLocator.png" alt="legend-icon" width="30">
+                            <b>Votre position actuelle</b>
+                        </div>
+                    </div>
+                    <div class="legend-search-title-bottom-carret">
+                        <div id="accordianId" role="tablist" aria-multiselectable="true">
+                            <div>
+                                <div role="tab" id="section1HeaderId">
+                                    <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
+                                        <div class="text-center pb-2 grey lighten-4 pt-2">
+                                            <i class="icofont-rounded-down black-text"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
+                                    <div class="p-3 font-size-13">
+                                        <div class="mb-2">
+                                            <img src="../../assets/icones/houselocator.svg" alt="legend-icon" width="30">
+                                            <b>Les maisons qui sont en location</b>
+                                        </div>
+                                        <div class="mb-2">
+                                            <img src="../../assets/icones/searchspin.png" alt="legend-icon" width="12" class="mr-2" style="margin-left: 10px;">
+                                            <b>L'adresse ou l'emplacement recherché</b>
+                                        </div>
+                                        <div>
+                                            <img src="../../assets/icones/userLocator.png" alt="legend-icon" width="30">
+                                            <b>Votre position actuelle</b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-2 pb-3 pl-3 pr-3 border-top legend-search-title-bottom">
+                        <small>
+                            <b>Légendes</b>
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+Fonctionnalités de Flatnye
+-	Permettre à un utilisateur de se connecter et de poster ses biens
+-	Permettre à un utilisateur de chercher un bien en fonction de son budget 
+-	Recherche par géolocalisation 
+

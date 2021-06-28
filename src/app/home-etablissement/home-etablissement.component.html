@@ -1,0 +1,273 @@
+<app-v-menu-bar></app-v-menu-bar>
+
+<div class="orange lighten-5 pt-3 pb-3 font-size-13">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <b>Chèr utilisateur, votre profil est n'esp pas complet. veuillez le compléter pour facilter le contact entre vous et vos potentiels clients.</b>
+                <b><a [routerLink]="['/etablissement/profile/update']">Compléter</a></b>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <table class="table">
+                <tr style="border: none !important;">
+                    <td width="100" class="text-center blue lighten-5">
+                        <div class="p-3 rounded-circle white" style="border: 1px solid #67bff7;">
+                            <img src="../../assets/db/avatars/etablissement/default.png" alt="" width="100%">
+                        </div>
+
+                        <a href="" style="margin-top: -40px; margin-right: -50px; line-height: 40px; width: 40px; height: 40px;" class="btn btn-white p-0 rounded-circle p-0">
+                            <i class="icofont-camera"></i>
+                        </a><br />
+                        <div class="text-center">
+                            <a [routerLink]="['/etablissement/profile/update',profile.id]">
+                                <i class="icofont-refresh blue-text"></i><br />
+                                <small class="blue-text"><b>Mettre à jour</b></small>
+                            </a>
+                        </div>
+                    </td>
+                    <td class="pl-3">
+                        <div class="container-fuid">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="font-size-13">
+                                        <div class="mb-2">
+                                            <small class="grey-text">Nom de l'Etablissement</small><br />
+                                            <b class="font-weight-bold">{{profile.nom}}</b>
+                                        </div>
+                                        <div class="mb-2 text-justify">
+                                            <small class="grey-text">Adresse complète</small><br />
+                                            <b>{{profile.adresse}}</b>
+                                        </div>
+                                        <div class="mb-2 text-justify">
+                                            <small class="grey-text">Email</small><br />
+                                            <b>{{profile.email}}</b>
+                                        </div>
+                                        <div class="mb-2 text-justify">
+                                            <small class="grey-text">Téléphone</small><br />
+                                            <i class="icofont-whatsapp green-text"></i>&nbsp;
+                                            <b>{{profile.contact}}</b><br />
+                                            <i class="icofont-phone blue-text"></i>&nbsp;
+                                            <b>{{profile.contact}}</b>
+                                        </div>
+                                        <!-- <div class="text-justify">
+                                            <small class="grey-text">Site web</small><br />
+                                            <b><a href="" class="blue-text">monsiteweb.com</a></b>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <div class="pt-3">
+                
+                <small><b>Description de l'établissement</b></small>
+
+                <div class="font-size-13 text-justify">
+                    <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga facere eligendi et quo laboriosam quam porro nostrum sit. Quae nam porro dicta minima placeat cumque nisi facilis voluptas, dolores neque?</b>
+                </div><br />
+
+                <small><b class="font-weight-bold">Réseaux sociaux</b></small>
+
+                <div>
+                    <a href="" class="btn btn-indigo p-0 rounded-circle text-center ml-0" style="width: 40px; height: 40px; line-height: 40px;">
+                        <i class="icofont-facebook"></i>
+                    </a>
+                    <a href="" class="btn btn-blue p-0 rounded-circle text-center ml-0" style="width: 40px; height: 40px; line-height: 40px;">
+                        <i class="icofont-twitter"></i>
+                    </a>
+                    <a href="" class="btn btn-blue-grey p-0 rounded-circle text-center ml-0" style="width: 40px; height: 40px; line-height: 40px;">
+                        <i class="icofont-linkedin"></i>
+                    </a>
+                    <a href="" class="btn btn-red p-0 rounded-circle text-center ml-0" style="width: 40px; height: 40px; line-height: 40px;">
+                        <i class="icofont-instagram"></i>
+                    </a>
+                    <a href="" class="btn btn-yellow p-0 rounded-circle text-center ml-0" style="width: 40px; height: 40px; line-height: 40px;">
+                        <span class="black-text"><i class="icofont-brand-snapchat"></i></span>
+                    </a>
+                </div><br />
+                
+                <div class="text-right font-size-13">
+                    <a [routerLink]="['/etablissement/profile/update']">
+                        <i class="icofont-refresh"></i>&nbsp;
+                        <b>Mettre à jour le compte</b>
+                    </a>
+                </div><br /><br />
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 pb-2">
+            <span class="badge badge-pill badge-warning z-depth-0">Mes maisons en location</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let bien of tabMesBiens">
+            <a [routerLink]="['/etablissement/house/show',bien.id]" *ngFor="let medias of bien.media_set">
+                <img src="{{medias.fichier}}" style="height: 100px;width: 100%;">
+            </a>
+
+            <div>
+                <h6 class="text-truncate">
+                    <small><b>Pièce simple avec WC interne</b></small>
+                </h6>
+                <div>
+                    <i class="icofont-heart red-text"></i>
+                    <small>12500</small>&nbsp;&nbsp;
+                    <small>
+                        <i class="icofont-coins"></i>
+                        {{bien.prix}} XOF par mois
+                    </small>
+                    <i class="icofont-eye grey-text"></i>
+                    <small>12500</small><br />
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div><br /><br /><br />
+
+<a href="#!" class="btn btn-primary p-0 rounded-circle float-add-button" data-toggle="modal" data-target="#modelId">
+    <i class="icofont-plus"></i>
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nouvel l'article</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <form action="" method="post">
+
+                    <div *ngIf="!mapSaved">
+                        <div class="">
+                            <label for="titre" class="mb-0 mt-0"><small><b>Titre article</b></small></label>
+                            <input type="text" id="titre" class="form-control font-size-14 mb-0" value="Le titre de l'article devrait donc être ici là à cet endroit">
+                        </div>
+    
+                        <label for="description" class="mb-0 mt-3"><small><b>Description article</b></small></label><br />
+                        <textarea id="description" class="form-control font-size-14 mb-0"></textarea>
+    
+                        <br />
+                        <table class="w-100">
+                            <tr>
+                                <td width="135">
+                                    <input type="number" class="form-control font-size-14" placeholder="Prix mensuel ...">
+                                </td>
+                                <td>
+                                    <div class="form-group mb-0">
+                                        <select class="custom-select font-size-14" name="" id="">
+                                            <option selected disabled value="">WC/D interne</option>
+                                            <option value="Oui">Oui</option>
+                                            <option value="Non">Non</option>
+                                        </select>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-group mb-0">
+                                        <select class="custom-select font-size-14" name="" id="">
+                                            <option selected disabled value="">Cuisine interne</option>
+                                            <option value="Oui">Oui</option>
+                                            <option value="Non">Non</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- <td colspan="3" class="pt-2">
+    
+                                    <b>Bouger le <img src="../../assets/icones/searchspin.png" alt="legend-icon" width="12" class="mr-2" style="margin-left: 10px;"> sur la carte pour changer de position.</b>
+    
+                                    <div class="side-map-right mb-3 pt-2">
+                                        <div class="search-maison-form white border">
+                                            <table class="w-100">
+                                                <tr>
+                                                    <td width="50" class="text-center">
+                                                        <label for="place" class="pt-2"><i class="icofont-listine-dots"></i></label>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="w-100" id="place" #search autocapitalize="off" autocomplete="off" spellcheck="off" placeholder="Entrer un lieu dans le champs ...">
+                                                    </td>
+                                                    <td width="55">
+                                                        <button class="w-100 text-center white">
+                                                            <i class="icofont-search"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+    
+                                        <div style="position: absolute; bottom: 0; right: 0; left: 0;">
+                                            <table class="w-100">
+                                                <tr>
+                                                    <td>
+                                                        
+                                                    </td>
+                                                    <td class="text-right">
+                                                        <button class="btn btn-white p-0 m-0 rounded-circle text-center"
+                                                        style="height: 45px; line-height: 55px; width: 45px;">
+                                                            <i class="icofont-focus icofont-2x"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>                                    
+                                </td> -->
+                            </tr>
+                        </table>
+
+                        <div class="text-center">
+                            <button type="button" (click)="onMapSaved()" class="btn btn-primary btn-md z-depth-0" style="border-radius: 25px;">
+                                Etape suivante
+                            </button>
+                        </div>
+                    </div>
+
+                    <div *ngIf="mapSaved">
+                        <div class="text-center">
+                            <button type="button" (click)="onMapUnSaved()" class="btn grey lighten-5 mt-0 mb-3 btn-md z-depth-0" style="border-radius: 25px;">
+                                <i class="icofont-long-arrow-left"></i>
+                                Etape précédente
+                            </button>
+                        </div>
+                        <label for="image" class="w-100">
+                            <div class="blue lighten-5 text-center pt-2 pb-2 indigo-text">
+                                <i class="icofont-paper-clip"></i>&nbsp;
+                                <b>Joindre l'image principale</b>
+                            </div>
+                            <input type="file" id="image" style="width: 0; height: 0; outline: none; border: none;">
+                        </label>
+                        <div style="height: 250px;" class="grey lighten-3">
+
+                        </div><br />
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary btn-md z-depth-0" style="border-radius: 25px;">
+                                Enregistrer l'article
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
